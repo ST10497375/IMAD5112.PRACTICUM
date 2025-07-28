@@ -58,26 +58,20 @@ class MainActivity : AppCompatActivity() {
         RecipeRatings.add("10/10")
 
         btnAddButton.setOnClickListener {
-            val recipe = txeNameEditText.text.toString().trim()
-            val category = txeCategoryEditText.text.toString().trim()
-            val rating = txeRatingEditText.text.toString().trim()
-            val ingredients = txeIngredientsEditText.text.toString().trim()
+            val recipe = txeNameEditText.text.toString()
+            val category = txeCategoryEditText.text.toString()
+            val rating = txeRatingEditText.text.toString()
+            val ingredients = txeIngredientsEditText.text.toString()
+
 
             //error handling
             if (recipe.isEmpty() || category.isEmpty() || rating.isEmpty() || ingredients.isEmpty()) {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT)
                 return@setOnClickListener
 
-
                 RecipeNames.add(recipe)
                 RecipeRatings.add(rating)
                 RecipeIngredients.add(ingredients)
-
-
-
-
-
-
                 txeNameEditText.text.clear()
                 txeRatingEditText.text.clear()
                 txeCategoryEditText.text.clear()
