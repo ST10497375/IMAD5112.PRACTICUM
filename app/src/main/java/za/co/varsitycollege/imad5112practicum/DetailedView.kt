@@ -13,6 +13,7 @@ import org.w3c.dom.Text
 class DetailedView : AppCompatActivity() {
     lateinit var RecipeNames: ArrayList<String>
     lateinit var RecipeIngredients: ArrayList<String>
+    lateinit var RecipeCategory: ArrayList<String>
     lateinit var RecipeRatings: FloatArray
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +30,12 @@ class DetailedView : AppCompatActivity() {
     val txeRatingsTextView = findViewById<TextView>(R.id.txeRatingsTextView)
 
         txeRecipeTextView.text = txeRatingsTextView.toString()
+
+      val displayText = StringBuilder()
+        for(i in RecipeNames.indices) {
+            txeRecipeTextView.append(" ${RecipeNames[i]}\n ${RecipeIngredients[i]}\n ${RecipeCategory[i]}\n")
+        }
+        txeRecipeTextView.text = displayText.toString()
 
         btnReturnButton.setOnClickListener {
             intent = Intent(this, MainActivity::class.java)
