@@ -90,7 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txeRatingEditText" />
 
     <Button
-        android:id="@+id/btnViewButton"
+        android:id="@+id/btnViewingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
@@ -112,7 +112,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnViewButton" />
+        app:layout_constraintTop_toBottomOf="@+id/btnViewingButton" />
 
     <Button
         android:id="@+id/btnAddButton"

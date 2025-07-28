@@ -1,6 +1,5 @@
 package za.co.varsitycollege.imad5112practicum
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -9,8 +8,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
     var RecipeNames = ArrayList<String>()
@@ -25,18 +22,19 @@ class MainActivity : AppCompatActivity() {
 //GRACIE ANTUF, ST10497375 IMAD PRACTICUM
 
 //all variables and arrays used
-        val recipe = arrayOf("recipe", "category", "rating", "ingredients")
 
+        val recipe = arrayOf("recipe", "category", "rating", "ingredients")
         val txeRecimeTextView = findViewById<TextView>(R.id.txeRecimeTextView)
         val txeNameEditText = findViewById<EditText>(R.id.txeNameEditText)
         val txeCategoryEditText = findViewById<EditText>(R.id.txeCategoryEditText)
         val txeRatingEditText = findViewById<EditText>(R.id.txeRatingEditText)
         val txeIngredientsEditText = findViewById<EditText>(R.id.txeIngredientsEditText)
 
-        val btnViewButton = findViewById<Button>(R.id.btnViewButton)
+        val btnViewingButton = findViewById<Button>(R.id.btnViewingButton)
         val btnExitButton = findViewById<Button>(R.id.btnExitButton)
         val btnAddButton = findViewById<Button>(R.id.btnAddButton)
 
+        //recipe info
         RecipeNames.add("Blueberry Pancakes")
         RecipeIngredients.add("Flour, Milk, Eggs, Sugar, Baking Powder")
         RecipeCategory.add("breakfast")
@@ -63,7 +61,6 @@ class MainActivity : AppCompatActivity() {
             val rating = txeRatingEditText.text.toString()
             val ingredients = txeIngredientsEditText.text.toString()
 
-
             //error handling
             if (recipe.isEmpty() || category.isEmpty() || rating.isEmpty() || ingredients.isEmpty()) {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT)
@@ -76,27 +73,35 @@ class MainActivity : AppCompatActivity() {
                 txeRatingEditText.text.clear()
                 txeCategoryEditText.text.clear()
                 txeIngredientsEditText.text.clear()
+
+                btnViewingButton.setOnClickListener {
+                    val intent = Intent(this, DetailedView::class.java)
+                    intent.putStringArrayListExtra("names", RecipeNames)
+                    intent.putStringArrayListExtra("ingredients", RecipeIngredients)
+                    intent.putStringArrayListExtra("ratings", RecipeRatings)
+                    intent.putExtra("category", RecipeCategory)
+                    startActivity(intent)
+                }
+
+                btnViewingButton.setOnClickListener {
+                    Toast.makeText(this, "Button clicked!", Toast.LENGTH_SHORT)
+                }
+
+
+
+
+                btnExitButton.setOnClickListener {
+                    finishAffinity()
+                }
+
+
+
+
+
             }
-            btnExitButton.setOnClickListener {
-                finishAffinity()
-            }
-
-
-
-            btnViewButton.setOnClickListener {
-                val intent = Intent(this, DetailedView::class.java)
-                intent.putStringArrayListExtra("names", RecipeNames)
-                intent.putStringArrayListExtra("ingredients", RecipeIngredients)
-                intent.putStringArrayListExtra("ratings", RecipeRatings)
-                intent.putExtra("category", RecipeCategory)
-                startActivity(intent)
-
-            }
-
-
         }
-    }
 
+    }
 }
 
 
