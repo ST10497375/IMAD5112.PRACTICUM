@@ -8,21 +8,45 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import org.w3c.dom.Text
 
 class DetailedView : AppCompatActivity() {
+    lateinit var RecipeNames: ArrayList<String>
+    lateinit var RecipeIngredients: ArrayList<String>
+    lateinit var RecipeRatings: FloatArray
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_detailed_view)
 
+        RecipeNames = intent.getStringArrayListExtra("Names") ?: arrayListOf()
+        RecipeIngredients = intent.getStringArrayListExtra("ingredients") ?: arrayListOf()
+        RecipeRatings = intent.getFloatArrayExtra("ratings") ?: floatArrayOf()
+
     val txeRecipeTextView = findViewById<TextView>(R.id.txeRecipeTextView)
     val btnAverageButton = findViewById<Button>(R.id.BtnAverageButton)
     val btnReturnButton = findViewById<Button>(R.id.btnReturnButton)
+    val txeRatingsTextView = findViewById<TextView>(R.id.txeRatingsTextView)
+
+        txeRecipeTextView.text = txeRatingsTextView.toString()
+
+        btnAverageButton.setOnClickListener {
+            if (RecipeRatings.isEmpty()) {
+                txeRecipeTextView.text = "No ratings found."
+            } else {
+                txeRatingsTextView.text = "Average rating: "
+            }
+        }
 
         btnReturnButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
+
+
+
+
 
 
 
