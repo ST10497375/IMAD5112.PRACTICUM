@@ -21,10 +21,12 @@ class MainActivity : AppCompatActivity() {
 //GRACIE ANTUF, ST10497375 IMAD PRACTICUM
 
 //all variables and arrays used
-        val recipes = arrayOf("Blueberry Pancakes, Omelette, Fruit Salad, Stir-fried Rice")
+        val recipes = arrayOf("recipe, category, rating, ingredients")
         for (recipe in recipes) {
             println(recipe)
         }
+         val omelete = arrayOf("2 eggs, one cup of milk, cut-up spring onions")
+
 
         val txeRecimeTextView = findViewById<TextView>(R.id.txeRecimeTextView)
         val txeNameEditText = findViewById<EditText>(R.id.txeNameEditText)
@@ -33,11 +35,9 @@ class MainActivity : AppCompatActivity() {
         val txeIngredientsEditText = findViewById<EditText>(R.id.txeIngredientsEditText)
         val btnViewButton = findViewById<Button>(R.id.btnViewButton)
         val btnExitButton = findViewById<Button>(R.id.btnExitButton)
+        val btnAddButton = findViewById<Button>(R.id.btnAddButton)
 
-        btnViewButton.setOnClickListener {
-            val intent = Intent(this, DetailedView::class.java)
-            startActivity(intent)
-
+        btnAddButton.setOnClickListener {
             val recipe = txeNameEditText.text.toString()
             val category = txeCategoryEditText.text.toString()
             val rating = txeRatingEditText.text.toString()
@@ -45,17 +45,22 @@ class MainActivity : AppCompatActivity() {
 
             //error handling
             if (recipe.isEmpty() || category.isEmpty() || rating.isEmpty() || ingredients.isEmpty())
-                Toast.makeText(this, "Please input the following to continue", Toast.LENGTH_SHORT)
+                Toast.makeText(this, "Please fill in the blank areas to continue", Toast.LENGTH_SHORT)
                     .show()
-            else {
-                return@setOnClickListener
-            }
-
 
         }
 
+        btnViewButton.setOnClickListener {
+            val intent = Intent(this, DetailedView::class.java)
+            startActivity(intent)
 
+        }
     }
+}
+
+
+
+
 
 
 
