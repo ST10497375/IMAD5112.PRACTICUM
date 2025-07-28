@@ -30,18 +30,19 @@ class DetailedView : AppCompatActivity() {
 
         txeRecipeTextView.text = txeRatingsTextView.toString()
 
+        btnReturnButton.setOnClickListener {
+            intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
         btnAverageButton.setOnClickListener {
-            if (RecipeRatings.isEmpty()) {
-                txeRecipeTextView.text = "No ratings found."
-            } else {
-                txeRatingsTextView.text = "Average rating: "
+            txeRatingsTextView.text
             }
         }
 
-        btnReturnButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
+
+
+
 
 
 
@@ -51,5 +52,5 @@ class DetailedView : AppCompatActivity() {
 
 
     }
-}
+
 
