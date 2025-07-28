@@ -73,7 +73,10 @@ class MainActivity : AppCompatActivity() {
                 RecipeRatings.add(rating)
                 RecipeIngredients.add(ingredients)
 
-                Toast.makeText(this, "Recipe added!", Toast.LENGTH_SHORT).show()
+
+
+
+
 
                 txeNameEditText.text.clear()
                 txeRatingEditText.text.clear()
@@ -83,6 +86,8 @@ class MainActivity : AppCompatActivity() {
             btnExitButton.setOnClickListener {
                 finishAffinity()
             }
+
+
 
             btnViewButton.setOnClickListener {
                 val intent = Intent(this, DetailedView::class.java)
@@ -99,6 +104,10 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+
+
+
+
 
 
 
