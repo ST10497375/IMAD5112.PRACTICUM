@@ -74,6 +74,9 @@ class MainActivity : AppCompatActivity() {
                 txeCategoryEditText.text.clear()
                 txeIngredientsEditText.text.clear()
 
+
+            }
+
                 btnViewingButton.setOnClickListener {
                     val intent = Intent(this, DetailedView::class.java)
                     intent.putStringArrayListExtra("names", RecipeNames)
@@ -83,22 +86,20 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
 
-                btnViewingButton.setOnClickListener {
-                    Toast.makeText(this, "Button clicked!", Toast.LENGTH_SHORT)
-                }
 
 
 
 
-                btnExitButton.setOnClickListener {
+
+            btnExitButton.setOnClickListener {
                     finishAffinity()
-                }
-
-
-
-
-
             }
+
+
+
+
+
+
         }
 
     }
