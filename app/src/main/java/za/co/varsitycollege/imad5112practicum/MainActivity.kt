@@ -21,18 +21,18 @@ class MainActivity : AppCompatActivity() {
 //GRACIE ANTUF, ST10497375 IMAD PRACTICUM
 
 //all variables and arrays used
-    val recipes = arrayOf("Blueberry Pancakes, Omelette, Fruit Salad, Stir-fried Rice")
+        val recipes = arrayOf("Blueberry Pancakes, Omelette, Fruit Salad, Stir-fried Rice")
         for (recipe in recipes) {
             println(recipe)
         }
 
-    val txeRecimeTextView = findViewById<TextView>(R.id.txeRecimeTextView)
-    val txeNameEditText = findViewById<EditText>(R.id.txeNameEditText)
-    val txeCategoryEditText = findViewById<EditText>(R.id.txeCategoryEditText)
-    val txeRatingEditText = findViewById<EditText>(R.id.txeRatingEditText)
-    val txeIngredientsEditText = findViewById<EditText>(R.id.txeIngredientsEditText)
-    val btnViewButton = findViewById<Button>(R.id.btnViewButton)
-    val btnExitButton = findViewById<Button>(R.id.btnExitButton)
+        val txeRecimeTextView = findViewById<TextView>(R.id.txeRecimeTextView)
+        val txeNameEditText = findViewById<EditText>(R.id.txeNameEditText)
+        val txeCategoryEditText = findViewById<EditText>(R.id.txeCategoryEditText)
+        val txeRatingEditText = findViewById<EditText>(R.id.txeRatingEditText)
+        val txeIngredientsEditText = findViewById<EditText>(R.id.txeIngredientsEditText)
+        val btnViewButton = findViewById<Button>(R.id.btnViewButton)
+        val btnExitButton = findViewById<Button>(R.id.btnExitButton)
 
         btnViewButton.setOnClickListener {
             val intent = Intent(this, DetailedView::class.java)
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
             if (recipe.isEmpty() || category.isEmpty() || rating.isEmpty() || ingredients.isEmpty())
                 Toast.makeText(this, "Please input the following to continue", Toast.LENGTH_SHORT)
                     .show()
-            else{
+            else {
                 return@setOnClickListener
             }
 
@@ -55,10 +55,8 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
-
-        }
-
-
-
     }
+
+
+
+
