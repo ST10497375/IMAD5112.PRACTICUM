@@ -18,71 +18,56 @@ class MainActivity : AppCompatActivity() {
     var RecipeRatings = ArrayList<String>()
     var RecipeCategory = ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            enableEdgeToEdge()
-            setContentView(R.layout.activity_main)
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_main)
 
 //GRACIE ANTUF, ST10497375 IMAD PRACTICUM
 
 //all variables and arrays used
-            val recipe = arrayOf("recipe", "category", "rating", "ingredients")
+        val recipe = arrayOf("recipe", "category", "rating", "ingredients")
 
-            val txeRecimeTextView = findViewById<TextView>(R.id.txeRecimeTextView)
-            val txeNameEditText = findViewById<EditText>(R.id.txeNameEditText)
-            val txeCategoryEditText = findViewById<EditText>(R.id.txeCategoryEditText)
-            val txeRatingEditText = findViewById<EditText>(R.id.txeRatingEditText)
-            val txeIngredientsEditText = findViewById<EditText>(R.id.txeIngredientsEditText)
+        val txeRecimeTextView = findViewById<TextView>(R.id.txeRecimeTextView)
+        val txeNameEditText = findViewById<EditText>(R.id.txeNameEditText)
+        val txeCategoryEditText = findViewById<EditText>(R.id.txeCategoryEditText)
+        val txeRatingEditText = findViewById<EditText>(R.id.txeRatingEditText)
+        val txeIngredientsEditText = findViewById<EditText>(R.id.txeIngredientsEditText)
 
-            val btnViewButton = findViewById<Button>(R.id.btnViewButton)
-            val btnExitButton = findViewById<Button>(R.id.btnExitButton)
-            val btnAddButton = findViewById<Button>(R.id.btnAddButton)
+        val btnViewButton = findViewById<Button>(R.id.btnViewButton)
+        val btnExitButton = findViewById<Button>(R.id.btnExitButton)
+        val btnAddButton = findViewById<Button>(R.id.btnAddButton)
 
-            RecipeNames.add("Blueberry Pancakes")
-            RecipeIngredients.add("Flour, Milk, Eggs, Sugar, Baking Powder")
-            RecipeCategory.add("breakfast")
-            RecipeRatings.add("8/10")
+        RecipeNames.add("Blueberry Pancakes")
+        RecipeIngredients.add("Flour, Milk, Eggs, Sugar, Baking Powder")
+        RecipeCategory.add("breakfast")
+        RecipeRatings.add("8/10")
 
-            RecipeNames.add("Omelette")
-            RecipeIngredients.add("Eggs, Milk, Salt, Cut green onions")
-            RecipeCategory.add("Lunch")
-            RecipeRatings.add("7/10")
+        RecipeNames.add("Omelette")
+        RecipeIngredients.add("Eggs, Milk, Salt, Cut green onions")
+        RecipeCategory.add("Lunch")
+        RecipeRatings.add("7/10")
 
-            RecipeNames.add("Fruit Salad")
-            RecipeCategory.add("Light snack")
-            RecipeIngredients.add("apples, bananas, kiwi, watermelon, all sliced")
-            RecipeRatings.add("8.5/10")
+        RecipeNames.add("Fruit Salad")
+        RecipeCategory.add("Light snack")
+        RecipeIngredients.add("apples, bananas, kiwi, watermelon, all sliced")
+        RecipeRatings.add("8.5/10")
 
-            RecipeNames.add("Stir fry")
-            RecipeIngredients.add("cooked rice, cooking oil, cut up vegetables of choice")
-            RecipeCategory.add("Dinner")
-            RecipeRatings.add("10/10")
+        RecipeNames.add("Stir fry")
+        RecipeIngredients.add("cooked rice, cooking oil, cut up vegetables of choice")
+        RecipeCategory.add("Dinner")
+        RecipeRatings.add("10/10")
 
-            btnAddButton.setOnClickListener {
-                val recipe = txeNameEditText.text.toString().trim()
-                val category = txeCategoryEditText.text.toString().trim()
-                val rating = txeRatingEditText.text.toString().trim()
-                val ingredients = txeIngredientsEditText.text.toString().trim()
+        btnAddButton.setOnClickListener {
+            val recipe = txeNameEditText.text.toString().trim()
+            val category = txeCategoryEditText.text.toString().trim()
+            val rating = txeRatingEditText.text.toString().trim()
+            val ingredients = txeIngredientsEditText.text.toString().trim()
 
-                //error handling
-                if (recipe.isEmpty() || category.isEmpty() || rating.isEmpty() || ingredients.isEmpty()) {
-                    Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT)
-                    return@setOnClickListener
-                }
+            //error handling
+            if (recipe.isEmpty() || category.isEmpty() || rating.isEmpty() || ingredients.isEmpty()) {
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT)
+                return@setOnClickListener
 
-                if (RecipeRatings == null) {
-                    Toast.makeText(this, "rating must be between 1 and 10", Toast.LENGTH_SHORT)
-                    return@setOnClickListener
-                }
-
-                if (RecipeIngredients.isEmpty()) {
-                    Toast.makeText(this, "Please input ingredients", Toast.LENGTH_SHORT)
-                    return@setOnClickListener
-                }
-
-                if (RecipeCategory.isEmpty()) {
-                    Toast.makeText(this, "Please add a category", Toast.LENGTH_SHORT)
-                    return@setOnClickListener
-                }
 
                 RecipeNames.add(recipe)
                 RecipeRatings.add(rating)
@@ -113,7 +98,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
+}
 
 
 
