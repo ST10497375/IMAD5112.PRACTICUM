@@ -39,18 +39,22 @@ class MainActivity : AppCompatActivity() {
 
             RecipeNames.add("Blueberry Pancakes")
             RecipeIngredients.add("Flour, Milk, Eggs, Sugar, Baking Powder")
+            RecipeCategory.add("breakfast")
             RecipeRatings.add("8/10")
 
             RecipeNames.add("Omelette")
             RecipeIngredients.add("Eggs, Milk, Salt, Cut green onions")
+            RecipeCategory.add("Lunch")
             RecipeRatings.add("7/10")
 
             RecipeNames.add("Fruit Salad")
+            RecipeCategory.add("Light snack")
             RecipeIngredients.add("apples, bananas, kiwi, watermelon, all sliced")
             RecipeRatings.add("8.5/10")
 
             RecipeNames.add("Stir fry")
             RecipeIngredients.add("cooked rice, cooking oil, cut up vegetables of choice")
+            RecipeCategory.add("Dinner")
             RecipeRatings.add("10/10")
 
             btnAddButton.setOnClickListener {
